@@ -1,0 +1,155 @@
+@import 'variable.scss';
+//------------------------------------------ 初始化 -------------------------------------
+html {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+dl,
+dt,
+dd {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+//--------------------------------------------- 块大小 ---------------------------------------------
+.w10p {
+  width: 10%;
+}
+.w20p {
+  width: 20%;
+}
+.w30p {
+  width: 30%;
+}
+.w100 {
+  width: 100px;
+}
+.w130 {
+  width: 130px;
+}
+.h10 {
+  height: 10px;
+}
+//--------------------------------------------- 块样式  --------------------------------------------
+.bg-white {
+  background: white;
+}
+//--------------------------------------------- 布局  --------------------------------------------
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: ' ';
+  clear: both;
+  height: 0;
+}
+.clearfix {
+  *zoom: 1;
+}
+//--------------------------------------------- 内外边距边框  --------------------------------------------
+.m0 {
+  margin-bottom: 0;
+}
+.mt5 {
+  margin-top: 5px;
+}
+.mt8 {
+  margin-top: 8px;
+}
+
+//--------------------------------------------- 文本 ---------------------------------------------
+.f13 {
+  font-size: 13px;
+}
+.f14{
+  font-size: 14px;
+}
+.f18 {
+  font-size: 18px;
+}
+.f20 {
+  font-size: 20px;
+}
+.red {
+  color: $red;
+}
+.blue {
+  color: $blue;
+}
+.blue_a {
+  color: $blue_a;
+}
+.green {
+  color: $green;
+}
+.orange {
+  color: $orange;
+}
+
+//-------------------------------------------- 后置样式 ---------------------------------------------------
+/* Vuebar 默认样式 */
+.vb > .vb-dragger {
+  z-index: 5;
+  width: 12px;
+  right: 0;
+}
+
+.vb > .vb-dragger > .vb-dragger-styler {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: rotate3d(0,0,0,0);
+  transform: rotate3d(0,0,0,0);
+  -webkit-transition:
+      background-color 100ms ease-out,
+      margin 100ms ease-out,
+      height 100ms ease-out;
+  transition:
+      background-color 100ms ease-out,
+      margin 100ms ease-out,
+      height 100ms ease-out;
+  background-color: rgba(48, 121, 244,.1);
+  margin: 5px 5px 5px 0;
+  border-radius: 20px;
+  height: calc(100% - 10px);
+  display: block;
+}
+
+.vb.vb-scrolling-phantom > .vb-dragger > .vb-dragger-styler {
+  background-color: rgba(48, 121, 244,.3);
+}
+
+.vb > .vb-dragger:hover > .vb-dragger-styler {
+  background-color: rgba(48, 121, 244,.5);
+  margin: 0px;
+  height: 100%;
+}
+
+.vb.vb-dragging > .vb-dragger > .vb-dragger-styler {
+  background-color: rgba(48, 121, 244,.5);
+  margin: 0px;
+  height: 100%;
+}
+
+.vb.vb-dragging-phantom > .vb-dragger > .vb-dragger-styler {
+  background-color: rgba(48, 121, 244,.5);
+}

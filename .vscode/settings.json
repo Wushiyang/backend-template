@@ -1,0 +1,17 @@
+{
+  "vetur.validation.script": false,
+  "flow.pathToFlow": "${workspaceFolder}/node_modules/.bin/flow",
+  "flow.showUncovered": true,
+  "editor.foldingStrategy": "indentation",
+  "javascript.validate.enable": false,
+  "flowide.pathToFlow": "${workspaceFolder}/node_modules/.bin/flow",
+  "prettier.eslintIntegration": true,
+  "editor.codeActionsOnSave": {
+    // For ESLint
+    "source.fixAll.eslint": true
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "svipas.prettier-plus"
+  },
+  "prettier.printWidth": 120
+}
