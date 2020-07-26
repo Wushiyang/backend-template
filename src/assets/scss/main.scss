@@ -45,10 +45,22 @@ a {
   height: 10px;
 }
 //--------------------------------------------- 块样式  --------------------------------------------
+.border-box {
+  box-sizing: border-box;
+}
 .bg-white {
   background: white;
 }
 //--------------------------------------------- 布局  --------------------------------------------
+.flex {
+  display: flex;
+}
+.flex-j-sp {
+  justify-content: space-between;
+}
+.flex-a-c {
+  align-items: center;
+}
 .fl {
   float: left;
 }
@@ -66,8 +78,23 @@ a {
 .clearfix {
   *zoom: 1;
 }
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.t0 {
+  top: 0;
+}
+.r0 {
+  right: 0;
+}
+.r5 {
+  right: 5px;
+}
 //--------------------------------------------- 内外边距边框  --------------------------------------------
-.m0 {
+.mb0 {
   margin-bottom: 0;
 }
 .mt5 {
@@ -75,6 +102,12 @@ a {
 }
 .mt8 {
   margin-top: 8px;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
+.mt40 {
+  margin-top: 40px
 }
 
 //--------------------------------------------- 文本 ---------------------------------------------
@@ -104,6 +137,9 @@ a {
 }
 .orange {
   color: $orange;
+}
+.tac {
+  text-align: center;
 }
 
 //-------------------------------------------- 后置样式 ---------------------------------------------------

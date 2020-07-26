@@ -5,11 +5,8 @@ export const login = (state, data) => {
 }
 
 // 获取和更新权限
-export const getPermissionList = (state, data) => {
-  state.permissionList = {}
-  for (let i = 0; i < data.length; i++) {
-    state.permissionList[data[i]] = true
-  }
+export const updatePermissionList = (state, data) => {
+  state.permissionList = data
 }
 
 // 退出登录

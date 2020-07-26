@@ -1,34 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '@/store'
 
 Vue.use(Router)
+const routes = store.getters.creatAutoRouter
 
-export default new Router({
-  routes: [
-    {
-      path: '/login',
-      name: 'login',
-      power: true,
-      component: () => import('@/pages/login'),
-      meta: {
-        tit: '登录'
-      }
-    },
-    {
-      path: '/',
-      component: () => import('@/pages/index'),
-      redirect: '/home',
-      children: [
-        {
-          path: '/home',
-          name: 'publishweibo',
-          component: () => import('@/pages/home'),
-          meta: {
-            tit: '发biu贴',
-            requireAuth: true
-          }
-        }
-      ]
-    }
-  ]
+const router = new Router({
+  routes
 })
+
+export default router

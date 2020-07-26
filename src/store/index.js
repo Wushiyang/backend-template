@@ -8,22 +8,18 @@ import * as mutations from './mutations'
 Vue.use(Vuex)
 
 const state = {
-  token: '',
   userInfo: {
-    account: '',
-    password: '',
-    phone: '',
-    sms_code: '',
-    code: '',
-    userinfo: {
-      avatar: null,
-      gender: 0,
-      id: null,
-      introduction: '',
-      nickname: '',
-      phone: ''
-    }
+    adminId: '',
+    adminName: '',
+    phone: ''
   },
+  token: '',
+  permissionList: [
+    // 'home',
+    // 'baidu',
+    // 'monitor',
+    // 'monitor_biu'
+  ],
   defaultImg: {
     error: 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png', // 错误图片
     avatar: '/static/images/common/userImg.png', // 默认头像
