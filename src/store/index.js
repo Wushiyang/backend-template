@@ -10,19 +10,9 @@ Vue.use(Vuex)
 const state = {
   token: '',
   userInfo: {
-    account: '',
-    password: '',
+    nickname: '',
     phone: '',
-    sms_code: '',
-    code: '',
-    userinfo: {
-      avatar: null,
-      gender: 0,
-      id: null,
-      introduction: '',
-      nickname: '',
-      phone: ''
-    }
+    account: ''
   },
   defaultImg: {
     error: 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png', // 错误图片

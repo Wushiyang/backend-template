@@ -5,8 +5,7 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
 import axios from './assets/js/axios'
-import qs from 'qs'
-import llAPI from './assets/js/api.js'
+import API from './assets/js/api.js'
 import Vuebar from 'vuebar'
 
 // 路由拦截
@@ -16,8 +15,7 @@ import './assets/js/filters'
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
-Vue.prototype.qs = qs
-Vue.prototype.llAPI = llAPI
+Vue.prototype.$API = API
 Vue.use(ElementUI)
 Vue.use(Vuebar)
 

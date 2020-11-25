@@ -109,39 +109,39 @@ export function upload (url, data, extras = false) {
     )
   })
 }
-let llAPI = {}
+let API = {}
 
-// 手机登录
-llAPI.loginPhone = (data, extras) => post(baseApiUrl + '/auth/phoneSignIn', data, extras)
-// 账号登录
-llAPI.loginAccount = (data, extras) => post(baseApiUrl + '/auth/accountSignIn', data, extras)
 // 获取验证码
-llAPI.sendSmsCaptcha = (data, extras) => post(commonApiUrl + '/verify/sendSmsCaptcha', data, extras)
+API.sendSmsCaptcha = (data, extras) => post(commonApiUrl + '/verify/sendSmsCaptcha', data, extras)
+// 手机登录
+API.loginPhone = (data, extras) => post(baseApiUrl + '/auth/phoneSignIn', data, extras)
+// 账号登录
+API.loginAccount = (data, extras) => post(baseApiUrl + '/auth/accountSignIn', data, extras)
 
-// 获取极验信息
-llAPI.getUserGeetest = (data, extras) => post(commonApiUrl + '/verify/startCaptchaServlet', data, extras)
-// 获取分享微博详情
-llAPI.getShareWeiBoDetail = (data, extras) => fetch(baseApiUrl + '/backend/share/getWeiboDetail', data, extras)
+// // 获取极验信息
+// llAPI.getUserGeetest = (data, extras) => post(commonApiUrl + '/verify/startCaptchaServlet', data, extras)
+// // 获取分享微博详情
+// llAPI.getShareWeiBoDetail = (data, extras) => fetch(baseApiUrl + '/backend/share/getWeiboDetail', data, extras)
 
-// 获取七牛云的上传凭证token
-llAPI.getQiniuToken = (data, extras) => fetch(baseApiUrl + '/common/getQiniuToken', data, extras)
+// // 获取七牛云的上传凭证token
+// llAPI.getQiniuToken = (data, extras) => fetch(baseApiUrl + '/common/getQiniuToken', data, extras)
 
-// 发布biu贴
-llAPI.saveWeibo = (data, extras) => post(baseApiUrl + '/weibo/save', data, extras)
+// // 发布biu贴
+// llAPI.saveWeibo = (data, extras) => post(baseApiUrl + '/weibo/save', data, extras)
 
-// 添加话题
-llAPI.getSearchTopics = (data, extras) => fetch(baseApiUrl + '/topic/getSearchTopics', data, extras)
+// // 添加话题
+// llAPI.getSearchTopics = (data, extras) => fetch(baseApiUrl + '/topic/getSearchTopics', data, extras)
 
-// @用户
-llAPI.getSearchUsers = (data, extras) => fetch(baseApiUrl + '/user/getList', data, extras)
+// // @用户
+// llAPI.getSearchUsers = (data, extras) => fetch(baseApiUrl + '/user/getList', data, extras)
 
-// 表情，和运营后台复用一个接口
-llAPI.getEmojiList = (data, extras) => fetch(baseApiUrl + '/backend/store_weibo/getEmojiList', data, extras)
+// // 表情，和运营后台复用一个接口
+// llAPI.getEmojiList = (data, extras) => fetch(baseApiUrl + '/backend/store_weibo/getEmojiList', data, extras)
 
-// 写文章
-llAPI.createWithArticle = (data, extras) => post(baseApiUrl + '/weibo/createWithArticle', data, extras)
+// // 写文章
+// llAPI.createWithArticle = (data, extras) => post(baseApiUrl + '/weibo/createWithArticle', data, extras)
 
-// 写文章
-llAPI.signOut = (data, extras) => post(baseApiUrl + '/auth/signOut', data, extras)
+// // 写文章
+// llAPI.signOut = (data, extras) => post(baseApiUrl + '/auth/signOut', data, extras)
 
-export default llAPI
+export default API
