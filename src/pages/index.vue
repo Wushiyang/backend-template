@@ -13,7 +13,7 @@
         <el-dropdown trigger="hover" class="mr10">
           <img
             class="avatar el-dropdown-link"
-            :src="$store.state.userInfo.avatar.full_url | jumpImgs('/static/images/common/userImg.png')"
+            :src="$store.state.userInfo.avatar.full_url | jumpImgs('/userImg.png')"
           />
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item @click.native="handleLogout">退出登录</el-dropdown-item>
