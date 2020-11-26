@@ -28,19 +28,19 @@ var instance = axios.create({
 // http request 拦截器
 
 instance.interceptors.request.use(
-  config => {
+  (config) => {
     // 可以在这里增加请求头和一些请求前的操作
     config.headers['x-access-token'] = `${store.state.token}`
     return config
   },
-  err => {
+  (err) => {
     return Promise.reject(err)
   }
 )
 
 // http response 拦截器
 instance.interceptors.response.use(
-  response => {
+  (response) => {
     if (response.data.code === 108006) {
       // 如果没登录，清空一些数据，并且跳转到登录页面
       store.commit('logout')
@@ -50,7 +50,7 @@ instance.interceptors.response.use(
     }
     return response
   },
-  error => {
+  (error) => {
     if (error.response) {
       switch (error.response.status) {
         case 401:

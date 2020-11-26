@@ -31,8 +31,7 @@ export default {
     return {
       model: {
         phone: this.$store.state.userInfo.phone,
-        sms_code: '',
-        token: ''
+        sms_code: ''
       },
       showGetSmsBtn: true,
       timeCounter: 60,
@@ -71,7 +70,7 @@ export default {
   },
   methods: {
     getSmsCode () {
-      let _this = this
+      let that = this
       if (!this.showGetSmsBtn) {
         this.$message({ message: '请稍后再试', type: 'error' })
       } else {
@@ -81,30 +80,23 @@ export default {
             type: 'error'
           })
         } else {
-          this.$API
-            .sendSmsCaptcha({ template_scene: 'backend_login_captcha', phone: this.model.phone })
-            .then(data => {
-              if (data.code === 0) {
-                localStorage.setItem('phone', this.model.phone)
-                this.showGetSmsBtn = false
-                var time = 60
-                var timer = setInterval(() => {
-                  if (time === 0) {
-                    clearTimeout(timer)
-                    _this.showGetSmsBtn = true
-                    _this.timeCounter = 60
-                  } else {
-                    time = parseInt(time) - 1
-                    _this.timeCounter = time
-                  }
-                }, 1000)
-              } else {
-                this.$message({
-                  message: data.message,
-                  type: 'error'
-                })
-              }
-            })
+          this.$API.sendSmsCaptcha({ template_scene: 'backend_login_captcha', phone: this.model.phone }).then((res) => {
+            const { code } = res
+            if (code === 0) {
+              localStorage.setItem('phone', this.model.phone)
+              this.showGetSmsBtn = false
+              let time = 60
+              let timer = setInterval(() => {
+                if (time === 0) {
+                  clearInterval(timer)
+                  that.showGetSmsBtn = true
+                  that.timeCounter = 60
+                } else {
+                  that.timeCounter = --time
+                }
+              }, 1000)
+            }
+          })
         }
       }
     },
@@ -121,20 +113,14 @@ export default {
         return false
       }
       this.isLoginLoading = true
-      this.llAPI
-        .login({ phone: this.model.phone, captcha: this.model.sms_code })
-        .then(res => {
-          if (res.code === 0) {
-            this.model.token = res.data.login_token
-            this.model.admin_id = res.data.admin_id
-            this.model.admin_name = res.data.nickname
-            this.$store.commit('login', this.model)
-            this.$store.commit('getPermissionList', res.data.menu_sign_list)
-            this.$router.push({ path: '/' })
-          } else {
-            this.isLoginLoading = false
-          }
-        })
+      this.$API.loginPhone({ phone: this.model.phone, captcha: this.model.sms_code }).then((res) => {
+        const { data, code } = res
+        if (code === 0) {
+          this.$store.commit('login', data)
+          this.$router.push({ path: '/' })
+        }
+        this.isLoginLoading = false
+      })
     }
   }
 }

@@ -1,6 +1,6 @@
 import axios from './axios'
 import $ajax from 'axios'
-import {baseApiUrl, commonApiUrl} from './env'
+import { baseApiUrl, commonApiUrl } from './env'
 import Vue from 'vue'
 /**
  * 封装get方法
@@ -8,10 +8,10 @@ import Vue from 'vue'
  * @param data
  * @returns {Promise}
  */
-export function fetch (url, params = {}, extras = false) {
+export function get (url, params = {}, extras = false) {
   let loadingInstance
   let isHideError = false
-  if (extras && extras.isHideError)isHideError = true
+  if (extras && extras.isHideError) isHideError = true
   if (extras && extras.isLoading) {
     // debugger
     loadingInstance = Vue.prototype.$loading({
@@ -26,15 +26,15 @@ export function fetch (url, params = {}, extras = false) {
       .get(url, {
         params: params
       })
-      .then(response => {
+      .then((response) => {
         const { msg, code } = response.data
         loadingInstance && loadingInstance.close()
         if (code !== 0) {
-          !isHideError && Vue.prototype.$message({message: `[${code}]${msg}`, type: 'error'})
+          !isHideError && Vue.prototype.$message({ message: `[${code}]${msg}`, type: 'error' })
         }
         resolve(response.data)
       })
-      .catch(err => {
+      .catch((err) => {
         loadingInstance && loadingInstance.close()
         reject(err)
       })
@@ -50,7 +50,7 @@ export function fetch (url, params = {}, extras = false) {
 export function post (url, data, extras = false) {
   let loadingInstance
   let isHideError = false
-  if (extras && extras.isHideError)isHideError = true
+  if (extras && extras.isHideError) isHideError = true
   if (extras && extras.isLoading) {
     loadingInstance = Vue.prototype.$loading({
       fullscreen: false,
@@ -61,15 +61,15 @@ export function post (url, data, extras = false) {
   }
   return new Promise((resolve, reject) => {
     axios.post(url, data).then(
-      response => {
+      (response) => {
         const { msg, code } = response.data
         loadingInstance && loadingInstance.close()
         if (code !== 0) {
-          !isHideError && Vue.prototype.$message({message: `[${code}]${msg}`, type: 'error'})
+          !isHideError && Vue.prototype.$message({ message: `[${code}]${msg}`, type: 'error' })
         }
         resolve(response.data)
       },
-      err => {
+      (err) => {
         loadingInstance && loadingInstance.close()
         reject(err)
       }
@@ -98,11 +98,11 @@ export function upload (url, data, extras = false) {
     form.append('file', data.file)
     form.append('token', data.token)
     $ajax.post(url, form).then(
-      response => {
+      (response) => {
         loadingInstance && loadingInstance.close()
         resolve(response.data)
       },
-      err => {
+      (err) => {
         loadingInstance && loadingInstance.close()
         reject(err)
       }
@@ -117,6 +117,8 @@ API.sendSmsCaptcha = (data, extras) => post(commonApiUrl + '/verify/sendSmsCaptc
 API.loginPhone = (data, extras) => post(baseApiUrl + '/auth/phoneSignIn', data, extras)
 // 账号登录
 API.loginAccount = (data, extras) => post(baseApiUrl + '/auth/accountSignIn', data, extras)
+
+API.getAdminUserInfo = (data, extras) => get(baseApiUrl + '/auth/userInfo', data, extras)
 
 // // 获取极验信息
 // llAPI.getUserGeetest = (data, extras) => post(commonApiUrl + '/verify/startCaptchaServlet', data, extras)

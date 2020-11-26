@@ -12,8 +12,14 @@ const state = {
   userInfo: {
     nickname: '',
     phone: '',
-    account: ''
+    account: '',
+    avatar: {
+      url: '',
+      full_url: '',
+      thumbnail_url: ''
+    }
   },
+  permissionDict: { default: true },
   defaultImg: {
     error: 'https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png', // 错误图片
     avatar: '/static/images/common/userImg.png', // 默认头像
