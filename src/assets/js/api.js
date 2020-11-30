@@ -117,8 +117,11 @@ API.sendSmsCaptcha = (data, extras) => post(commonApiUrl + '/verify/sendSmsCaptc
 API.loginPhone = (data, extras) => post(baseApiUrl + '/auth/phoneSignIn', data, extras)
 // 账号登录
 API.loginAccount = (data, extras) => post(baseApiUrl + '/auth/accountSignIn', data, extras)
-
+// 获取用户信息
 API.getAdminUserInfo = (data, extras) => get(baseApiUrl + '/auth/userInfo', data, extras)
+
+// 获取例子列表
+API.getExampleList = (data, extras) => get(baseApiUrl + '/example/getlist', data, extras)
 
 // // 获取极验信息
 // llAPI.getUserGeetest = (data, extras) => post(commonApiUrl + '/verify/startCaptchaServlet', data, extras)

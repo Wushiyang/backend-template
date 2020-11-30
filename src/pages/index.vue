@@ -1,5 +1,5 @@
 <template>
-  <el-container class="container">
+  <el-container class="page_container">
     <el-header class="header">
       <transition name="el-zoom-in-center">
         <router-link to="/home" class="logo" v-show="!is_collapse" style="width: 200px;">{{ sysName }} </router-link>
@@ -119,7 +119,8 @@ export default {
       this.$router.push({ path: '/login' })
     },
     handleSelect (index) {
-      if (index) {
+      // 避免重复跳转
+      if (index && index !== this.$route.path) {
         this.$router.push(index)
       }
     },
@@ -140,8 +141,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.container {
-  height: 100%;
+.page_container {
   .header {
     padding: 0;
     display: flex;

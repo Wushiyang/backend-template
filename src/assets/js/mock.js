@@ -25,6 +25,80 @@ Mock.mock(/\/auth\/phoneSignIn/, () => ({
     }
   }
 }))
+Mock.mock(/\/example\/getlist/, () => ({
+  code: 0,
+  msg: '成功',
+  data: {
+    filter: [
+      {
+        field: 'view_pattern',
+        label: '查看方式',
+        option: [
+          {
+            label: '单向',
+            value: 'oneway'
+          },
+          {
+            label: '双向',
+            value: 'bothway'
+          }
+        ]
+      },
+      {
+        field: 'content_type',
+        label: '内容筛选',
+        option: [
+          {
+            label: '全部',
+            value: 'all'
+          },
+          {
+            label: '文本',
+            value: 1
+          },
+          {
+            label: '语音',
+            value: 2
+          },
+          {
+            label: '图片',
+            value: 3
+          },
+          {
+            label: '视频',
+            value: 4
+          }
+        ]
+      },
+      {
+        field: 'search_dimension',
+        label: '搜索',
+        option: [
+          {
+            label: '内容',
+            value: 'content'
+          },
+          {
+            label: '话题',
+            value: 'topic'
+          },
+          {
+            label: '位置',
+            value: 'position'
+          },
+          {
+            label: '作者',
+            value: 'user'
+          },
+          {
+            label: '管理员手机号',
+            value: 'admin_phone'
+          }
+        ]
+      }
+    ]
+  }
+}))
 Mock.mock(/\/auth\/userInfo/, () => ({
   code: 0,
   msg: '成功',
