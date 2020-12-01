@@ -29,8 +29,27 @@
   </div>
 </template>
 <script>
-// filter 过滤器的结构对象
-// param 过滤器的过滤参数
+// filter 过滤器的结构对象,用来渲染filter组件
+// {
+//   field: 'view_pattern', // field是字符串
+//   label: '查看方式',
+//   option: [
+//     {
+//       label: '单向',
+//       value: 'oneway'
+//     },
+//     {
+//       label: '双向',
+//       value: 'bothway'
+//     }
+//   ]
+// },
+// {
+//   field: ['send_user_nickname', 'received_user_nickname'], // field也可是数组，然后将v-slot:send_user_nickname的组件通过插槽的方式传进filter组件
+//   label: '聊天双方'
+// },
+// param 过滤器的过滤参数,处理数据传入filter组件
+// 会在第一次渲染filter后取当前param结构里filter渲染所用到的值作为默认值
 // confirm 过滤器点击重置、确定的触发函数
 export default {
   name: 'WFilter',
